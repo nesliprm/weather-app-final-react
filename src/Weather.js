@@ -5,50 +5,23 @@ import axios from "axios";
 
 export default function Weather() {
   let [city, setCity] = useState("");
-  let [header, setHeader] = useState("Amsterdam");
-  let [country, setCountry] = useState("NL");
-  let [temp, setTemp] = useState("");
-  let [highlow, setHighlow] = useState("");
-  let [weatherinfo, setWeatherinfo] = useState("");
-  let [icon, setIcon] = useState("");
+  let [weatherdata, setWeatherdata] = useState("");
 
   function showWeather(response) {
     console.log(response.data);
-    let iconURL = `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`;
-    setHeader(city);
-    setCountry(response.data.sys.country);
-    setIcon(
-      <img
-        src={iconURL}
-        alt={response.data.weather[0].description}
-        className="iconStyle"
-      />
-    );
-    setTemp(Math.round(response.data.main.temp));
-    setHighlow(
-      <div>
-        <small className="high-low-text">H: </small>
-        <span className="light-text temperatures">
-          {Math.round(response.data.main.temp_max)}
-        </span>
-        <small className="high-low-text"> L: </small>
-        <span className="light-text temperatures">
-          {Math.round(response.data.main.temp_min)}
-        </span>
-      </div>
-    );
-    setWeatherinfo(
-      <div>
-        <div className="info-text-1">
-          {response.data.weather[0].description}
-        </div>
-        <div className="info-text-2">
-          Feels like {Math.round(response.data.main.feels_like)}°C • Humidity{" "}
-          {Math.round(response.data.main.humidity)}% • Wind{" "}
-          {Math.round(response.data.wind.speed)} m/s
-        </div>
-      </div>
-    );
+
+    setWeatherdata({
+      name: response.data.name,
+      country: response.data.sys.country,
+      icon: `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+      temp: Math.round(response.data.main.temp),
+      high: Math.round(response.data.main.temp_max),
+      low: Math.round(response.data.main.temp_min),
+      desc: response.data.weather[0].description,
+      feels: Math.round(response.data.main.feels_like),
+      humidity: response.data.main.humidity,
+      wind: Math.round(response.data.wind.speed),
+    });
   }
 
   function handleSubmit(event) {
@@ -83,23 +56,38 @@ export default function Weather() {
           <div className="row">
             <span className="col-sm">
               <div className="col-sm">
-                <h1>{header}</h1>
+                <h1>{weatherdata.name}</h1>
                 <div className="sub-text">
                   <i className="fa-solid fa-location-dot"></i>{" "}
-                  <small>{country}</small>
+                  <small>{weatherdata.country}</small>
                 </div>
 
                 <small className="updateInfo">
                   Last updated: <span>Saturday 13:53</span>
                 </small>
 
-                <div>{icon}</div>
+                <div>
+                  <img
+                    src={weatherdata.icon}
+                    alt={weatherdata.desc}
+                    className="iconStyle"
+                  />
+                </div>
 
                 <div>
                   <small className="light-text">currently</small>
                 </div>
-                <div className="currentTemp">{temp}°C</div>
-                <div>{highlow}</div>
+                <div className="currentTemp">{weatherdata.temp}°C</div>
+                <div>
+                  <small className="high-low-text">H: </small>
+                  <span className="light-text temperatures">
+                    {weatherdata.high}
+                  </span>
+                  <small className="high-low-text"> L: </small>
+                  <span className="light-text temperatures">
+                    {weatherdata.low}
+                  </span>
+                </div>
 
                 <br />
 
@@ -113,7 +101,13 @@ export default function Weather() {
                   </a>
                 </div>
                 <br />
-                <div>{weatherinfo}</div>
+                <div>
+                  <div className="info-text-1">{weatherdata.desc}</div>
+                  <div className="info-text-2">
+                    Feels like {weatherdata.feels}°C • Humidity{" "}
+                    {weatherdata.humidity}% • Wind {weatherdata.wind} m/s
+                  </div>
+                </div>
 
                 <br />
               </div>

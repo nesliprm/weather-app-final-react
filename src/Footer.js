@@ -1,5 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
+import "./Footer.css";
 
 export default function Footer() {
   return (
@@ -9,10 +10,10 @@ export default function Footer() {
           href="https://github.com/nesliprm/weather-app-final-react"
           target="_blank"
           rel="noreferrer"
-          class="link-dark"
+          className="link-dark"
         >
           Open Source Code
-        </a>
+        </a>{" "}
         by ▼ Nesli Parmaksizoglu
       </footer>
     </div>

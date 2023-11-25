@@ -1,71 +1,68 @@
 .Weather {
   text-align: center;
-}
-
-body {
   font-family: "Rajdhani", sans-serif;
 }
 
-h1 {
+.Weather h1 {
   margin-bottom: 0px;
 }
 
-.border {
+.Weather .border {
   border-radius: 6px;
   padding-top: 15px;
   padding-left: 25px;
   padding-right: 25px;
 }
 
-.btn-dark {
+.Weather .btn-dark {
   margin-left: 5px;
 }
 
-.btn-secondary {
+.Weather .btn-secondary {
   margin-left: 5px;
 }
 
-.col {
+.Weather .col {
   text-align: center;
 }
 
-.col-2 {
+.Weather .col-2 {
   text-align: center;
 }
 
-.col-sm {
+.Weather .col-sm {
   text-align: center;
 }
 
-.currentTemp {
+.Weather .currentTemp {
   font-size: 36px;
   font-weight: bold;
 }
 
-.fa-solid {
+.Weather .fa-solid {
   font-size: 14px;
   margin-top: 20px;
   margin-bottom: 20px;
 }
 
-.forecastTempHigh {
+.Weather .forecastTempHigh {
   font-weight: bold;
 }
 
-.form-inline {
+.Weather .form-inline {
   display: flex;
 }
 
-.high-low-text {
+.Weather .high-low-text {
   color: grey;
   font-size: 12px;
 }
 
-.iconStyle {
+.Weather .iconStyle {
   width: 100px;
 }
 
-.info-text-1 {
+.Weather .info-text-1 {
   display: block;
   margin: auto;
   margin-bottom: 3px;
@@ -73,11 +70,11 @@ h1 {
   font-weight: bold;
 }
 
-.info-text-1:first-letter {
+.Weather .info-text-1:first-letter {
   text-transform: capitalize;
 }
 
-.info-text-2 {
+.Weather .info-text-2 {
   font-size: 12px;
   display: block;
   margin: auto;
@@ -85,15 +82,15 @@ h1 {
   color: grey;
 }
 
-.inner-edge {
+.Weather .inner-edge {
   margin-top: 20px;
 }
 
-.light-text {
+.Weather .light-text {
   color: grey;
 }
 
-.outer-edge {
+.Weather .outer-edge {
   margin-top: 20px;
   border: dashed 1px lightgray;
   border-radius: 10px;
@@ -101,37 +98,37 @@ h1 {
   max-width: 600px;
 }
 
-.small-icon {
+.Weather .small-icon {
   font-size: 48px;
   margin-top: 24px;
   margin-bottom: 24px;
 }
 
-.sub-text {
+.Weather .sub-text {
   position: relative;
   top: -5px;
 }
 
-.temperatures {
+.Weather .temperatures {
   margin-top: 0;
   margin-bottom: 0;
   font-size: 18px;
   color: grey;
 }
 
-.units {
+.Weather .units {
   color: grey;
   font-size: 12px;
   text-decoration: none;
   cursor: default;
 }
 
-.units:hover {
+.Weather .units:hover {
   color: black;
   text-decoration: underline;
 }
 
-.updateInfo {
+.Weather .updateInfo {
   font-size: 12px;
   color: grey;
 }

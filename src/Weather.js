@@ -24,8 +24,7 @@ export default function Weather() {
               <div className="col-sm">
                 <h1>Amsterdam</h1>
                 <small className="sub-text">
-                  <i className="fa-solid fa-location-dot"></i>
-                  <small>NL</small>
+                  <i className="fa-solid fa-location-dot"></i> <small>NL</small>
                 </small>
                 <br />
 
@@ -34,7 +33,11 @@ export default function Weather() {
                 </small>
 
                 <br />
-                <img src="" alt="" className="iconStyle" />
+                <img
+                  src="https://cdn2.iconfinder.com/data/icons/weather-and-meteorology-simplicon-set/102/mostly-sunny-cloudy-cloud-512.png"
+                  alt="Few clouds icon"
+                  className="iconStyle"
+                />
                 <br />
                 <div>
                   <small className="light-text">currently</small>
@@ -47,11 +50,11 @@ export default function Weather() {
                 <br />
                 <br />
                 <div className="light-text">
-                  <a className="units" href="">
+                  <a className="units" href="#">
                     °C
                   </a>{" "}
                   |{" "}
-                  <a className="units" href="">
+                  <a className="units" href="#">
                     °F
                   </a>
                 </div>

@@ -10,7 +10,7 @@ export default function Weather() {
 
   function showWeather(response) {
     console.log(response.data);
-    setHeader({ city });
+    setHeader(city);
     setCountry(response.data.sys.country);
   }
 
@@ -48,7 +48,7 @@ export default function Weather() {
               <div className="col-sm">
                 <h1>{header}</h1>
                 <div className="sub-text">
-                  <i className="fa-solid fa-location-dot"></i>
+                  <i className="fa-solid fa-location-dot"></i>{" "}
                   <small>{country}</small>
                 </div>
                 <br />

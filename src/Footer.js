@@ -6,6 +6,8 @@ export default function Footer() {
   return (
     <div className="Footer container">
       <footer>
+        Built with React.
+        <br />
         <a
           href="https://github.com/nesliprm/weather-app-final-react"
           target="_blank"

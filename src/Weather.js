@@ -7,11 +7,39 @@ export default function Weather() {
   let [city, setCity] = useState("");
   let [header, setHeader] = useState("Amsterdam");
   let [country, setCountry] = useState("NL");
+  let [temp, setTemp] = useState("");
+  let [highlow, setHighlow] = useState("");
+  let [weatherinfo, setWeatherinfo] = useState("");
 
   function showWeather(response) {
     console.log(response.data);
     setHeader(city);
     setCountry(response.data.sys.country);
+    setTemp(Math.round(response.data.main.temp));
+    setHighlow(
+      <div>
+        <small className="high-low-text">H: </small>
+        <span className="light-text temperatures">
+          {Math.round(response.data.main.temp_max)}
+        </span>
+        <small className="high-low-text"> L: </small>
+        <span className="light-text temperatures">
+          {Math.round(response.data.main.temp_min)}
+        </span>
+      </div>
+    );
+    setWeatherinfo(
+      <div>
+        <div className="info-text-1">
+          {response.data.weather[0].description}
+        </div>
+        <div className="info-text-2">
+          Feels like {Math.round(response.data.main.feels_like)}°C • Humidity{" "}
+          {Math.round(response.data.main.humidity)}% • Wind{" "}
+          {Math.round(response.data.wind.speed)} m/s
+        </div>
+      </div>
+    );
   }
 
   function handleSubmit(event) {
@@ -67,11 +95,9 @@ export default function Weather() {
                 <div>
                   <small className="light-text">currently</small>
                 </div>
-                <div className="currentTemp">10°C</div>
-                <small className="high-low-text">H: </small>
-                <span className="light-text temperatures">9</span>
-                <small className="high-low-text"> L: </small>
-                <span className="light-text temperatures">7</span>
+                <div className="currentTemp">{temp}°C</div>
+                <div>{highlow}</div>
+
                 <br />
                 <br />
                 <div className="light-text">
@@ -84,10 +110,8 @@ export default function Weather() {
                   </a>
                 </div>
                 <br />
-                <div className="info-text-1">Few clouds</div>
-                <div className="info-text-2">
-                  Feels like 4°C • Humidity 83% • Wind 6 m/s
-                </div>
+                <div>{weatherinfo}</div>
+
                 <br />
               </div>
             </span>

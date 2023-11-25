@@ -1,18 +1,41 @@
+import React, { useState } from "react";
 import "./Weather.css";
 import "bootstrap/dist/css/bootstrap.css";
 import axios from "axios";
 
 export default function Weather() {
+  let [city, setCity] = useState("");
+  let [header, setHeader] = useState("Amsterdam");
+  let [country, setCountry] = useState("NL");
+
+  function showWeather(response) {
+    console.log(response.data);
+    setHeader({ city });
+    setCountry(response.data.sys.country);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    let apiKey = "1d038ee28ef2727a9f0310860ac10ae9";
+    let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    axios.get(apiURL).then(showWeather);
+  }
+
+  function updateCity(event) {
+    setCity(event.target.value);
+  }
+
   return (
     <div className="Weather">
       <div className="container outer-edge">
-        <form className="form-inline">
+        <form className="form-inline" onSubmit={handleSubmit}>
           <input
             type="text"
             className="form-control mb-2 mr-sm-2"
             placeholder="Please type a location..."
-            autofocus="on"
-            autocomplete="off"
+            autoFocus="on"
+            autoComplete="off"
+            onChange={updateCity}
           />
 
           <button type="submit" className="btn btn-dark mb-2">
@@ -23,10 +46,11 @@ export default function Weather() {
           <div className="row">
             <span className="col-sm">
               <div className="col-sm">
-                <h1>Amsterdam</h1>
-                <small className="sub-text">
-                  <i className="fa-solid fa-location-dot"></i> <small>NL</small>
-                </small>
+                <h1>{header}</h1>
+                <div className="sub-text">
+                  <i className="fa-solid fa-location-dot"></i>
+                  <small>{country}</small>
+                </div>
                 <br />
 
                 <small className="updateInfo">

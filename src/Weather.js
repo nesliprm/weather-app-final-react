@@ -1,7 +1,6 @@
 import "./Weather.css";
+import "bootstrap/dist/css/bootstrap.css";
 
-function Weather() {
-  return <div className="Weather">HELLO</div>;
+export default function Weather() {
+  return <div className="Weather container pt-5">HELLO</div>;
 }
-
-export default Weather;

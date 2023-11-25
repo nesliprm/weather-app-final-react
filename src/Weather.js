@@ -10,11 +10,20 @@ export default function Weather() {
   let [temp, setTemp] = useState("");
   let [highlow, setHighlow] = useState("");
   let [weatherinfo, setWeatherinfo] = useState("");
+  let [icon, setIcon] = useState("");
 
   function showWeather(response) {
     console.log(response.data);
+    let iconURL = `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`;
     setHeader(city);
     setCountry(response.data.sys.country);
+    setIcon(
+      <img
+        src={iconURL}
+        alt={response.data.weather[0].description}
+        className="iconStyle"
+      />
+    );
     setTemp(Math.round(response.data.main.temp));
     setHighlow(
       <div>
@@ -79,19 +88,13 @@ export default function Weather() {
                   <i className="fa-solid fa-location-dot"></i>{" "}
                   <small>{country}</small>
                 </div>
-                <br />
 
                 <small className="updateInfo">
                   Last updated: <span>Saturday 13:53</span>
                 </small>
 
-                <br />
-                <img
-                  src="https://cdn2.iconfinder.com/data/icons/weather-and-meteorology-simplicon-set/102/mostly-sunny-cloudy-cloud-512.png"
-                  alt="Few clouds icon"
-                  className="iconStyle"
-                />
-                <br />
+                <div>{icon}</div>
+
                 <div>
                   <small className="light-text">currently</small>
                 </div>
@@ -99,7 +102,7 @@ export default function Weather() {
                 <div>{highlow}</div>
 
                 <br />
-                <br />
+
                 <div className="light-text">
                   <a className="units" href="#">
                     °C

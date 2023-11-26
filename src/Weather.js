@@ -2,16 +2,16 @@ import React, { useState } from "react";
 import "./Weather.css";
 import "bootstrap/dist/css/bootstrap.css";
 import axios from "axios";
+import Showdate from "./Showdate";
 
 export default function Weather() {
   let [city, setCity] = useState("");
   let [weatherdata, setWeatherdata] = useState("");
 
   function showWeather(response) {
-    console.log(response.data);
-
     setWeatherdata({
       name: response.data.name,
+      date: new Date(response.data.dt * 1000),
       country: response.data.sys.country,
       icon: `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
       temp: Math.round(response.data.main.temp),
@@ -63,7 +63,10 @@ export default function Weather() {
                 </div>
 
                 <small className="updateInfo">
-                  Last updated: <span>Saturday 13:53</span>
+                  Last updated:{" "}
+                  <span>
+                    <Showdate value={weatherdata.date} />
+                  </span>
                 </small>
 
                 <div>

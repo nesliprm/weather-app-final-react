@@ -117,14 +117,14 @@
   color: grey;
 }
 
-.Weather .units {
+.Conversion a {
+  color: grey;
+  text-decoration: none;
   color: grey;
   font-size: 12px;
-  text-decoration: none;
-  cursor: default;
 }
 
-.Weather .units:hover {
+.Conversion a:hover {
   color: black;
   text-decoration: underline;
 }

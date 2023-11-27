@@ -3,15 +3,17 @@ import "./Weather.css";
 import "bootstrap/dist/css/bootstrap.css";
 import axios from "axios";
 import Showdate from "./Showdate";
+import WeatherContent from "./WeatherContent";
 
 export default function Weather() {
+  let [loaded, setLoaded] = useState(false);
   let [city, setCity] = useState("");
   let [weatherdata, setWeatherdata] = useState("");
 
   function showWeather(response) {
     setWeatherdata({
       name: response.data.name,
-      date: new Date(response.data.dt * 1000),
+      date: `${new Date(response.data.dt * 1000)}`,
       country: response.data.sys.country,
       icon: `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
       temp: Math.round(response.data.main.temp),
@@ -22,6 +24,7 @@ export default function Weather() {
       humidity: response.data.main.humidity,
       wind: Math.round(response.data.wind.speed),
     });
+    setLoaded(true);
   }
 
   function handleSubmit(event) {
@@ -52,71 +55,7 @@ export default function Weather() {
             Search
           </button>
         </form>
-        <div className="container inner-edge">
-          <div className="row">
-            <span className="col-sm">
-              <div className="col-sm">
-                <h1>{weatherdata.name}</h1>
-                <div className="sub-text">
-                  <i className="fa-solid fa-location-dot"></i>{" "}
-                  <small>{weatherdata.country}</small>
-                </div>
-
-                <small className="updateInfo">
-                  Last updated:{" "}
-                  <span>
-                    <Showdate value={weatherdata.date} />
-                  </span>
-                </small>
-
-                <div>
-                  <img
-                    src={weatherdata.icon}
-                    alt={weatherdata.desc}
-                    className="iconStyle"
-                  />
-                </div>
-
-                <div>
-                  <small className="light-text">currently</small>
-                </div>
-                <div className="currentTemp">{weatherdata.temp}°C</div>
-                <div>
-                  <small className="high-low-text">H: </small>
-                  <span className="light-text temperatures">
-                    {weatherdata.high}
-                  </span>
-                  <small className="high-low-text"> L: </small>
-                  <span className="light-text temperatures">
-                    {weatherdata.low}
-                  </span>
-                </div>
-
-                <br />
-
-                <div className="light-text">
-                  <a className="units" href="#">
-                    °C
-                  </a>{" "}
-                  |{" "}
-                  <a className="units" href="#">
-                    °F
-                  </a>
-                </div>
-                <br />
-                <div>
-                  <div className="info-text-1">{weatherdata.desc}</div>
-                  <div className="info-text-2">
-                    Feels like {weatherdata.feels}°C • Humidity{" "}
-                    {weatherdata.humidity}% • Wind {weatherdata.wind} m/s
-                  </div>
-                </div>
-
-                <br />
-              </div>
-            </span>
-          </div>
-        </div>
+        <WeatherContent value={weatherdata} />
       </div>
     </div>
   );

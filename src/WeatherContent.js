@@ -22,7 +22,7 @@ export default function WeatherContent(props) {
                   <Showdate value={props.value.date} />
                 </span>
               </small>
-              <br />
+
               <br />
               <div>
                 <Icon value={props.value.icon} />

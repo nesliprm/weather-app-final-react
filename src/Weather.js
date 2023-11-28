@@ -10,12 +10,13 @@ export default function Weather(props) {
   let [weatherdata, setWeatherdata] = useState({ ready: false });
 
   function showWeather(response) {
+    console.log(response);
     setWeatherdata({
       ready: true,
       name: response.data.name,
       date: new Date(response.data.dt * 1000),
       country: response.data.sys.country,
-      icon: `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+      icon: response.data.weather[0].icon,
       temp: Math.round(response.data.main.temp),
       high: Math.round(response.data.main.temp_max),
       low: Math.round(response.data.main.temp_min),

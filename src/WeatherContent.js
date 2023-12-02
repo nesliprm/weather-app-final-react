@@ -7,7 +7,7 @@ export default function WeatherContent(props) {
   return (
     <div className="WeatherContent">
       <div className="container inner-edge">
-        <div className="row">
+        <div className="border-bottom row">
           <span className="col-sm">
             <div className="col-sm">
               <h1>{props.value.name}</h1>
@@ -25,7 +25,7 @@ export default function WeatherContent(props) {
 
               <br />
               <div>
-                <Icon value={props.value.icon} />
+                <Icon value={props.value.icon} size={100} />
               </div>
               <br />
               <div>

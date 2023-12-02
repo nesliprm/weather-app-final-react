@@ -31,7 +31,7 @@ export default function Icon(props) {
       <ReactAnimatedWeather
         icon={valueMapping[props.value]}
         color="#f78536"
-        size="100"
+        size={props.size}
         animate={true}
       />
     );
@@ -44,7 +44,7 @@ export default function Icon(props) {
         <ReactAnimatedWeather
           icon={valueMapping[props.value]}
           color="#2b4450"
-          size="100"
+          size={props.size}
           animate={true}
         />
       );
@@ -58,7 +58,7 @@ export default function Icon(props) {
           <ReactAnimatedWeather
             icon={valueMapping[props.value]}
             color="#497285"
-            size="100"
+            size={props.size}
             animate={true}
           />
         );
@@ -67,7 +67,7 @@ export default function Icon(props) {
           <ReactAnimatedWeather
             icon={valueMapping[props.value]}
             color="#dfebed"
-            size="100"
+            size={props.size}
             animate={true}
           />
         );

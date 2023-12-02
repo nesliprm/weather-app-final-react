@@ -1,0 +1,10 @@
+.Forecast {
+}
+
+.Forecast-icon {
+  max-width: 12px;
+}
+
+.Forecast-temp-high {
+  font-weight: bolder;
+}

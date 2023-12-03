@@ -23,8 +23,8 @@ export default function Showdate(props) {
   }
 
   return (
-    <div>
+    <span>
       {day} {hour}:{min}
-    </div>
+    </span>
   );
 }

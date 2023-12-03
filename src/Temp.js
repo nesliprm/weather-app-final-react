@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Conversion(props) {
+export default function Temp(props) {
   return (
     <div className="Conversion">
       <div className="currentTemp">{props.value.temp}°C</div>

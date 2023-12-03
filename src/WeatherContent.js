@@ -1,6 +1,6 @@
 import React from "react";
 import Showdate from "./Showdate";
-import Conversion from "./Conversion";
+import Temp from "./Temp";
 import Icon from "./Icon";
 
 export default function WeatherContent(props) {
@@ -22,17 +22,17 @@ export default function WeatherContent(props) {
                   <Showdate value={props.value.date} />
                 </span>
               </small>
-
+              <br />
               <br />
               <div>
-                <Icon value={props.value.icon} size={100} />
+                <Icon value={props.value.icon} size={80} />
               </div>
               <br />
               <div>
                 <small className="light-text">currently</small>
               </div>
 
-              <Conversion value={props.value} />
+              <Temp value={props.value} />
 
               <br />
             </div>

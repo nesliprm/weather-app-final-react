@@ -4,19 +4,19 @@ import "./Forecast.css";
 import ForecastDaily from "./ForecastDaily";
 
 export default function Forecast(props) {
-  let [loaded, setLoaded] = useState(false);
+  let [fetched, setFetched] = useState(false);
   let [forecast, setForecast] = useState(null);
 
   useEffect(() => {
-    setLoaded(false);
+    setFetched(false);
   }, [props.lat]);
 
   function showForecast(response) {
     setForecast(response.data.daily);
-    setLoaded(true);
+    setFetched(true);
   }
 
-  if (loaded) {
+  if (fetched) {
     return (
       <div className="Forecast mt-3">
         <div className="row">
